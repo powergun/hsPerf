@@ -46,3 +46,17 @@ tests:
     - -with-rtsopts=-N
     dependencies:
     - profiling
+
+benchmarks:
+  prof:
+    main:             Main.hs
+    source-dirs: bench
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    dependencies:
+      - base
+      - profiling
+      - criterion
+      - random
