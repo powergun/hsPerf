@@ -2,8 +2,8 @@ module Main where
 
 import           Criterion
 import           Criterion.Main (defaultMain)
+import           Data.List
 import           System.Random
-import Data.List
 
 largestRectangle a = a
 
