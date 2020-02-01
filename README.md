@@ -15,7 +15,7 @@ make sure `*.prof` is added to `.gitignore` file.
 
 ## Benchmark, Criterion
 
-[profiling](./benchmarkss)
+see `benchmarkss`
 
 an end-to-end set up of criterion with purely stack package.yaml
 (no touching of cabel file)
