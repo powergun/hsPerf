@@ -24,6 +24,32 @@ make sure `*.prof` is added to `.gitignore` file.
 
 ### Profiling Memory (Heap) Usage
 
+inspired by: High Perf Haskell P/48, but note that, like the old method
+below it still uses GHC directly; I should use stack's `package.yaml`
+
+a test target should already have the `-rtsopts` argument
+
+```yaml
+tests:
+  memoizations-test:
+    main: Spec.hs
+    source-dirs: test
+    ghc-options:
+      - -threaded
+      - -rtsopts
+      - -with-rtsopts=-N
+    dependencies:
+      - memoizations
+      - hspec
+```
+
+run `stack test`, make sure the tests pass; then find the test target
+executable such as this `.stack-work/dist/x86_64-osx/Cabal-2.4.0.1/build/memoizations-test/memoizations-test`
+
+run `<binary> +RTS -s`, which display the heap usage.
+
+### (old) Profiling Memory (Heap) Usage
+
 see also: First Principles P/1123 (for reference only, do not copy)
 
 source: <https://tech.fpcomplete.com/haskell/tutorial/profiling>
