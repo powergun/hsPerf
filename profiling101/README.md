@@ -70,3 +70,31 @@ stack exec -- ghc Main.hs -rtsopts -fforce-recomp -prof
 stack exec -- hp2ps -e8in -c Main.hp
 open Main.ps
 ```
+
+## How to enable time + mem profiling in GHCi
+
+mentioned in: High Perf Haskell P/50
+
+enable flag `:set +s`, you can get time and space statistics of
+every evaluation
+
+> Keep in mind though that no optimizations can be enabled for interpreted
+> code, so compiled code can have very different performance characteristics.
+> To test with optimizations, you should compile the module with optimizations
+> and then import it into GHCi.
+
+```haskell
+hs> :set +s
+hs> a = 1
+(0.01 secs, 0 bytes)
+hs> a = foldr (+) 0 [1..1000]
+(0.05 secs, 0 bytes)
+hs> a = foldr (+) 0 [1..1000]
+hs> a = foldl (+) 0 [1..1000]
+(0.01 secs, 0 bytes)
+hs> a = foldr (++) "" (fmap show [1..1000])
+(0.02 secs, 0 bytes)
+hs> a
+.......
+(0.05 secs, 2,808,488 bytes)
+```
