@@ -20,6 +20,15 @@ stack --profile run --rts-options -p
 cat profiling101-exe.prof
 ```
 
+I can also profile an executable target like so (inspired by High Perf
+haskell P/104)
+
+```shell
+stack run <executable-target> -- +RTS -s
+```
+
+(this requires the build args to include `-rtsopts`)
+
 make sure `*.prof` is added to `.gitignore` file.
 
 ### Profiling Memory (Heap) Usage
@@ -98,3 +107,19 @@ hs> a
 .......
 (0.05 secs, 2,808,488 bytes)
 ```
+
+## Cost Center, High Perf Haskell P/105
+
+see `app/Main.hs`; run the target like so (NOTE: **this may trigger
+a large scale recompilation of all the dependency!!!**)
+
+```shell
+stack clean
+stack run --executable-profiling simple -- +RTS -s -p -RTS
+cat simple.prof
+```
+
+also mentioned on P/109
+
+> Stack conveniently re-builds all necessary packages that didn't
+> previously have profiling enabled
