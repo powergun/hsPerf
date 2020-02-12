@@ -53,6 +53,24 @@ executables:
       - -with-rtsopts=-N
     dependencies:
       - profiling101
+  taylor:
+    main: Main.hs
+    source-dirs: app/taylor-polynomial
+    ghc-options:
+      - -threaded
+      - -rtsopts
+      - -with-rtsopts=-N
+    dependencies:
+      - profiling101
+  taylor-opt:
+    main: Main.hs
+    source-dirs: app/taylor-polynomial-opt
+    ghc-options:
+      - -threaded
+      - -rtsopts
+      - -with-rtsopts=-N
+    dependencies:
+      - profiling101
 
 tests:
   profiling101-test:

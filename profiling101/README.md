@@ -144,6 +144,9 @@ stack run crash --executable-profiling -- +RTS -p -xc
 see: `app/memory/Main.hs`; this requires `--executable-profiling` and
 runtime system flags `+RTS -hc`; the plotting part is done by `hp2ps`
 
+Note that I can either use the automatic cost center (named after
+FilenameLineno) or use an annoation
+
 ```shell
 ./clean
 stack run profile-heap --executable-profiling -- +RTS -hc
