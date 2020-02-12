@@ -1,16 +1,10 @@
 module Main (main) where
 
-import           Control.Monad (replicateM_)
-import           Data.Bool     (bool)
-import           System.IO     (IOMode (..), hPutStr, withFile)
+fib_mem :: Int -> Integer
+fib_mem = (fmap fib [0..] !!)
+  where
+    fib 0 = 1
+    fib 1 = 1
+    fib n = fib_mem (n - 1) + fib_mem (n - 2)
 
-blah :: [Integer]
-blah = [1..1000]
-
-main :: IO ()
-main = do
-  let report x = withFile "/dev/null" WriteMode (\h -> hPutStr h $ show x)
-      compute = length . tail
-      filters = (fmap (+ 1)) . (fmap (* 2))
-  replicateM_ 10000 (report . compute . filters $ blah)
-  putStrLn ""
+main = print $ fib_mem 10000

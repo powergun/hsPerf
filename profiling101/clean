@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+
+stack clean
+
+find . -name "*.prof" \
+   -or -name "*.aux" \
+   -or -name "*.hp" \
+   -or -name "*.ps" | xargs -0 rm

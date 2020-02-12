@@ -59,6 +59,8 @@ run `<binary> +RTS -s`, which display the heap usage.
 
 ### (old) Profiling Memory (Heap) Usage
 
+NOTE: refer to Profile Heap section below for the suggested method
+
 see also: First Principles P/1123 (for reference only, do not copy)
 
 source: <https://tech.fpcomplete.com/haskell/tutorial/profiling>
@@ -136,3 +138,7 @@ P/110
 stack clean
 stack run crash --executable-profiling -- +RTS -p -xc
 ```
+
+## Profile Heap (snapshot)
+
+see: `app/memory/Main.hs`;
