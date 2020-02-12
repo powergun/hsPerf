@@ -145,8 +145,10 @@ see: `app/memory/Main.hs`; this requires `--executable-profiling` and
 runtime system flags `+RTS -hc`; the plotting part is done by `hp2ps`
 
 ```shell
-stack clean
+./clean
 stack run profile-heap --executable-profiling -- +RTS -hc
+# also experiment with -hd (all closure descriptions)
+
 stack exec -- hp2ps -e8in -c profile-heap.hp
 open profile-heap.ps
 ```
