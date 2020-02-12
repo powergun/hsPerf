@@ -176,6 +176,11 @@ precision: 1600, step: 0.05)
 ```shell
 ./clean
 stack run taylor --executable-profiling -- +RTS -hc -i0.007
-stack exec -- hp2ps -c -d -e8in taylor.hp
+stack exec -- hp2ps -c -e8in taylor.hp
 open taylor.ps
 ```
+
+NOTE: **GHC (8.6.5) is able to apply the optimization to the un-optimized
+taylor polynomial example** therefore the resulting plot looks different
+to the one in the book (confirming that both versions look the same in
+the plot)
