@@ -139,7 +139,7 @@ stack clean
 stack run crash --executable-profiling -- +RTS -p -xc
 ```
 
-## Profile Heap (snapshot)
+## Profile Heap (snapshot), High Perf Haskell P/105
 
 see: `app/memory/Main.hs`; this requires `--executable-profiling` and
 runtime system flags `+RTS -hc`; the plotting part is done by `hp2ps`
@@ -155,3 +155,17 @@ stack run profile-heap --executable-profiling -- +RTS -hc
 stack exec -- hp2ps -e8in -c profile-heap.hp
 open profile-heap.ps
 ```
+
+## Profile Heap: Taylor Polynomial and Optimization, High Perf Haskell P/113
+
+see: `app/taylor-polynomial` and `app/taylor-polynomial-opt`
+
+P/113
+
+> The `-i0.05` flag sets the interval we want to sample the heap.
+> By default, this is 0.1 seconds. We halve it for our program to extract
+> enough details.
+
+NOTE: recall Linux Profiling book: the interval should NOT be a multiple
+of 10 or 1/10 - it should be slightly off to capture a more accurate
+snapshot. (0.03 etc.)
