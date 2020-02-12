@@ -169,3 +169,13 @@ P/113
 NOTE: recall Linux Profiling book: the interval should NOT be a multiple
 of 10 or 1/10 - it should be slightly off to capture a more accurate
 snapshot. (0.03 etc.)
+
+running the un-optimized taylor polynomial (I have to increase the workload -
+precision: 1600, step: 0.05)
+
+```shell
+./clean
+stack run taylor --executable-profiling -- +RTS -hc -i0.007
+stack exec -- hp2ps -c -d -e8in taylor.hp
+open taylor.ps
+```
