@@ -123,3 +123,16 @@ also mentioned on P/109
 
 > Stack conveniently re-builds all necessary packages that didn't
 > previously have profiling enabled
+
+### Debugging crashes with profiler
+
+P/110
+
+> The Runtime System features the `-xc` flag, which shows the current
+> cost centre stack when an exception is raised.
+> GHC 8 is the earliest release where actual callstack information is available
+
+```shell
+stack clean
+stack run crash --executable-profiling -- +RTS -p -xc
+```

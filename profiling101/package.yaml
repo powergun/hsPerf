@@ -35,6 +35,15 @@ executables:
       - -with-rtsopts=-N
     dependencies:
       - profiling101
+  crash:
+    main: Main.hs
+    source-dirs: app/crash
+    ghc-options:
+      - -threaded
+      - -rtsopts
+      - -with-rtsopts=-N
+    dependencies:
+      - profiling101
   profile-heap:
     main: Main.hs
     source-dirs: app/memory
