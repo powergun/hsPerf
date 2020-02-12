@@ -28,7 +28,7 @@ library:
 executables:
   simple:
     main: Main.hs
-    source-dirs: app
+    source-dirs: app/simple
     ghc-options:
       - -threaded
       - -rtsopts
@@ -46,7 +46,7 @@ executables:
       - profiling101
   profile-heap:
     main: Main.hs
-    source-dirs: app/memory
+    source-dirs: app/profile-heap
     ghc-options:
       - -threaded
       - -rtsopts

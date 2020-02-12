@@ -59,7 +59,7 @@ run `<binary> +RTS -s`, which display the heap usage.
 
 ### (old) Profiling Memory (Heap) Usage
 
-NOTE: refer to Profile Heap section below for the suggested method
+NOTE: **refer to Profile Heap section below for the suggested method**
 
 see also: First Principles P/1123 (for reference only, do not copy)
 
@@ -141,4 +141,12 @@ stack run crash --executable-profiling -- +RTS -p -xc
 
 ## Profile Heap (snapshot)
 
-see: `app/memory/Main.hs`;
+see: `app/memory/Main.hs`; this requires `--executable-profiling` and
+runtime system flags `+RTS -hc`; the plotting part is done by `hp2ps`
+
+```shell
+stack clean
+stack run profile-heap --executable-profiling -- +RTS -hc
+stack exec -- hp2ps -e8in -c profile-heap.hp
+open profile-heap.ps
+```
