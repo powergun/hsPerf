@@ -196,4 +196,4 @@ stack exec -- hp2ps -c -e8in keyenc.hp
 open keyenc.ps
 ```
 
-NOTE: append is a copy operation
+NOTE: **append is a copy operation**
