@@ -37,6 +37,33 @@ see also: First Principle P/1133 (Basic Libraries Chapter)
 
 ## Discover Criterion, High Perf Haskell
 
+### How to run individual benchmark target
+
+the definition of the targets look like below, while the project (local package)
+is named `benchmarkss`
+
+```yaml
+benchmarks:
+  simple:
+    main: Main.hs
+    source-dirs: bench/simple
+    # ...
+  compl:
+    main: Main.hs
+    source-dirs: bench/compl
+    # ...
+```
+
+to execute the benchmark target `simple` alone:
+
+```shell
+stack bench benchmarkss:simple
+
+# `<local package>:<target>`
+```
+
+same rule applies to `stack test`
+
 ### how to generate HTML output
 
 mentioned on High Performance Haskell, P/126

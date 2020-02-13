@@ -20,7 +20,5 @@ main = do
       , bench "Size 10 Test" $ whnf const l2
       , bench "Size 100 Test" $ whnf const l3
       , bench "Size 1000 Test" $ whnf const l4
-      , bench "Size 10000 Test" $ whnf const l5
-      , bench "Size 100000 Test" $ whnf const l6
       ]
     ]
