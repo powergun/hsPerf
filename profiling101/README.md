@@ -197,3 +197,9 @@ open keyenc.ps
 ```
 
 NOTE: **append is a copy operation**
+
+P/122
+
+> It is a good idea to always check the Runtime System memory
+> statistics with `+RTS -s`, as that will always give exact memory
+> usage.

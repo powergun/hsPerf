@@ -1,4 +1,4 @@
-# Profiling with criterion
+# Benchmarking with criterion
 
 ## project setup
 
@@ -31,6 +31,17 @@ explains where `whnf` comes from;
 
 see also: First Principle P/1133 (Basic Libraries Chapter)
 
-## how to run profiler
+## how to run benchmark suite
 
 `stack bench`
+
+## how to generate HTML output
+
+mentioned on High Performance Haskell, P/126
+
+```shell
+stack bench --ba '--output o.html'
+open o.html
+```
+
+(`--ba` is to pass benchmarking arguments to criterion)
