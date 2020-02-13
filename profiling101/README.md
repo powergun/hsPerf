@@ -184,3 +184,16 @@ NOTE: **GHC (8.6.5) is able to apply the optimization to the un-optimized
 taylor polynomial example** therefore the resulting plot looks different
 to the one in the book (confirming that both versions look the same in
 the plot)
+
+## Objects outside the Heap, High Perf Haskell P/117
+
+see `app/keyenc`; profile with
+
+```shell
+./clean
+stack run keyenc --executable-profiling -- +RTS -h -i0.003
+stack exec -- hp2ps -c -e8in keyenc.hp
+open keyenc.ps
+```
+
+NOTE: append is a copy operation
