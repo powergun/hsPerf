@@ -35,7 +35,9 @@ see also: First Principle P/1133 (Basic Libraries Chapter)
 
 `stack bench`
 
-## how to generate HTML output
+## Discover Criterion, High Perf Haskell
+
+### how to generate HTML output
 
 mentioned on High Performance Haskell, P/126
 
@@ -45,3 +47,34 @@ open o.html
 ```
 
 (`--ba` is to pass benchmarking arguments to criterion)
+
+### understanding whnf, High Perf Haskell P/127
+
+> The rule of thumb is that, when the result of the benchmarkable
+> function depends on the environment (the second argument to `whnf`),
+> then the time taken to evaluate the result will resemble the real cost.
+
+### understanding nf
+
+P/127
+
+> `NFData` stands for Normal Form Data, which is a stronger notion
+> than `Weak Head Normal Form`. In normal form, the structure is fully
+> evaluated, meaning there are no unevaluated thunks, even deep down
+> the structure.
+
+NF is not always the "real world situation"
+
+P/127
+
+> With normal form, we can benchmark the total evaluation of big algebraic
+> data structures such as trees. However, it should be kept in mind that,
+> in real scenarios, it is rarely the case that a big lazy structure needs
+> to be evaluated fully.
+
+What is the criterion iteration about?
+
+> Criterion works so that it executes a benchmark for a few different numbers
+> of iterations. For a wellbehaving, predictable benchmarkable function or
+> action, execution times increase linearly when the number of iterations
+> increases. Criterion uses linear regression to measure this
