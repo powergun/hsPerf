@@ -51,3 +51,13 @@ stack run fib-spark -- +RTS -s
 > structure in parallel, using some strategy.
 > Essentially we have separated the algorithm (a lazy data structure)
 > from the parallel evaluation (a strategy).
+
+see: `app/eval/par-traversable.hs`,
+
+```text
+stack run par-trav -- 1 +RTS -s
+[(1,1000001),(2,2000002),(3,2000003),(4,2000004),(5,2000005),(6,2000006),(7,2000007)]
+...
+  SPARKS: 7(6 converted, 0 overflowed, 0 dud, 0 GC'd, 1 fizzled)
+...
+```
