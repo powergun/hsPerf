@@ -44,3 +44,10 @@ stack run fib-spark -- +RTS -s
   SPARKS: 7235(106 converted, 0 overflowed, 0 dud, 98 GC'd, 7031 fizzled)
 ...
 ```
+
+### Parallel Abstraction and Strategies, High Perf Haskell P/179
+
+> The principle is to use `using` or `runEval` to evaluate a lazy data
+> structure in parallel, using some strategy.
+> Essentially we have separated the algorithm (a lazy data structure)
+> from the parallel evaluation (a strategy).

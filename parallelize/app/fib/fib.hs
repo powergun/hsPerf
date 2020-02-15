@@ -1,5 +1,3 @@
-module Main (main) where
-
 fib :: Int -> Int
 fib n
   | n <= 1 = 1

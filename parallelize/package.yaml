@@ -21,14 +21,15 @@ description: Please see the README on GitHub at <https://github.com/githubuser/p
 
 dependencies:
   - base >= 4.7 && < 5
+  - parallel == 3.2.2.0
 
 library:
   source-dirs: src
 
 executables:
   fib:
-    main: Main.hs
-    source-dirs: app/fib/single-thread
+    main: fib.hs
+    source-dirs: app/fib
     ghc-options:
       - -threaded
       - -rtsopts
@@ -36,8 +37,8 @@ executables:
     dependencies:
       - parallelize
   fib-mt:
-    main: Main.hs
-    source-dirs: app/fib/multi-thread
+    main: fib-mt-simple.hs
+    source-dirs: app/fib
     ghc-options:
       - -threaded
       - -rtsopts
@@ -46,8 +47,8 @@ executables:
       - parallelize
       - parallel == 3.2.2.0
   fib-spark:
-    main: Main.hs
-    source-dirs: app/fib/spark
+    main: fib-mt-spark.hs
+    source-dirs: app/fib
     ghc-options:
       - -threaded
       - -rtsopts
@@ -55,6 +56,15 @@ executables:
     dependencies:
       - parallelize
       - parallel == 3.2.2.0
+  par-trav:
+    main: par-traversable.hs
+    source-dirs: app/eval
+    ghc-options:
+      - -threaded
+      - -rtsopts
+      - -with-rtsopts=-N
+    dependencies:
+      - parallelize
 
 tests:
   parallelize-test:
