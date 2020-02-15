@@ -32,3 +32,15 @@ stack run fib-mt -- +RTS -s
   SPARKS: 3(3 converted, 0 overflowed, 0 dud, 0 GC'd, 0 fizzled)
 ...
 ```
+
+avoid over subscription, see `app/fib/spark`
+
+> But if we limit sparking to larger recursive calls where n > 25,
+> we get a finer work distribution
+
+```text
+stack run fib-spark -- +RTS -s
+...
+  SPARKS: 7235(106 converted, 0 overflowed, 0 dud, 98 GC'd, 7031 fizzled)
+...
+```

@@ -45,6 +45,16 @@ executables:
     dependencies:
       - parallelize
       - parallel == 3.2.2.0
+  fib-spark:
+    main: Main.hs
+    source-dirs: app/fib/spark
+    ghc-options:
+      - -threaded
+      - -rtsopts
+      - -with-rtsopts=-N
+    dependencies:
+      - parallelize
+      - parallel == 3.2.2.0
 
 tests:
   parallelize-test:
