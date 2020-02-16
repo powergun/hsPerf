@@ -61,3 +61,10 @@ stack run par-trav -- 1 +RTS -s
   SPARKS: 7(6 converted, 0 overflowed, 0 dud, 0 GC'd, 1 fizzled)
 ...
 ```
+
+### Use ThreadScope, High Perf haskell P/189
+
+see: `par-trav-ts` target; build with `stack build`; run with
+`stack run par-trav-ts -- +RTS -l`, then `threadscope <name>.eventlog`
+
+threadscope is installed using the prebuilt binary (for Ubuntu 64 trusty);
