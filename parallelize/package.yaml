@@ -22,6 +22,8 @@ description: Please see the README on GitHub at <https://github.com/githubuser/p
 dependencies:
   - base >= 4.7 && < 5
   - parallel == 3.2.2.0
+  - repa == 3.4.1.4
+  - mtl == 2.2.2
 
 library:
   source-dirs: src
@@ -73,6 +75,15 @@ executables:
       - -rtsopts
       - -with-rtsopts=-N
       - -eventlog
+    dependencies:
+      - parallelize
+  repa-d1:
+    main: repa.hs
+    source-dirs: app/data-para
+    ghc-options:
+      - -threaded
+      - -rtsopts
+      - -with-rtsopts=-N
     dependencies:
       - parallelize
 
